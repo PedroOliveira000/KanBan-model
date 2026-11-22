@@ -1,4 +1,4 @@
-const API = "";
+const API = "http://127.0.0.1:8000";
 const seletor = document.getElementById("seletor-quadro");
 const quadroEl = document.getElementById("quadro");
 

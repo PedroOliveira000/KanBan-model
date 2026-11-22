@@ -201,4 +201,4 @@ def mover_cartao(cartao_id: int, dados: CartaoMover):
 def excluir_cartao(cartao_id: int):
     supabase.table("cartoes").delete().eq("id", cartao_id).execute()
 
-app.mount("/", StaticFiles(directory="frontendev", html=True), name="frontend")
+app.mount("/", StaticFiles(directory="front-endev", html=True), name="frontend")
