@@ -301,3 +301,163 @@ select:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+/* Tela de acesso: dimensões, cores e hierarquia inspiradas na referência. */
+#tela-login[hidden],
+#app-kanban[hidden] { display: none; }
+
+.tela-login {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  place-items: center;
+  padding: 32px 24px;
+  background-color: var(--fundo);
+  background-image: url("/assets/bolas_verdes_loop_suave.gif");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.painel-login {
+  width: min(100%, 1000px);
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--coluna);
+}
+
+.cabecalho-login {
+  display: grid;
+  min-height: 115px;
+  place-items: center;
+  padding: 18px 24px;
+  border-radius: 12px;
+  background: #fff;
+  text-align: center;
+}
+
+.cabecalho-login h1 {
+  margin: 0;
+  color: #050505;
+  font-family: var(--fonte-pesada);
+  font-size: clamp(1.45rem, 3.3vw, 2.25rem);
+  font-weight: 950;
+  line-height: 1.1;
+}
+
+.conteudo-login {
+  padding: 10px 37px 26px;
+}
+
+.instrucao-login {
+  margin: 0 0 26px;
+  color: #111;
+  font-family: system-ui, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
+  line-height: 1.35;
+  text-align: center;
+}
+
+.form-login {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 134px;
+  align-items: stretch;
+  gap: 48px;
+}
+
+.campos-login {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.campos-login input {
+  width: 100%;
+  height: 78px;
+  padding: 0 20px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  outline: none;
+  background: #fff;
+  color: #111;
+  font: 400 19px/1.3 system-ui, sans-serif;
+  text-align: center;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.campos-login input::placeholder {
+  color: #222;
+  opacity: 1;
+}
+
+.campos-login input:focus {
+  border-color: var(--destaque);
+  box-shadow: 0 0 0 3px rgba(56,155,45,.18);
+}
+
+.botao-entrar {
+  display: grid;
+  min-height: 286px;
+  place-items: center;
+  padding: 18px;
+  border: 0;
+  border-radius: 12px;
+  background: #389b61;
+  cursor: pointer;
+  transition: background-color .15s ease, transform .15s ease;
+}
+
+.botao-entrar:hover { background: #2d8e55; }
+.botao-entrar:active { transform: scale(.98); }
+.botao-entrar:disabled { cursor: wait; opacity: .65; }
+
+.botao-entrar svg {
+  display: block;
+  width: min(100%, 112px);
+  height: auto;
+  fill: #fff;
+}
+
+.botao-entrar:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 4px;
+}
+
+.mensagem-login {
+  min-height: 1.4em;
+  margin: 12px 0 0;
+  color: #8f2119;
+  font: 600 14px/1.4 system-ui, sans-serif;
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+@media (max-width: 680px) {
+  .tela-login { padding: 20px 16px; }
+  .cabecalho-login { min-height: 88px; padding: 16px 14px; }
+  .conteudo-login { padding: 14px 18px 18px; }
+  .instrucao-login { margin-bottom: 18px; }
+  .form-login { grid-template-columns: minmax(0, 1fr) 72px; gap: 12px; }
+  .campos-login { gap: 14px; }
+  .campos-login input { height: 64px; padding: 0 10px; font-size: 15px; }
+  .botao-entrar { min-height: 0; padding: 8px; }
+  .botao-entrar svg { width: 54px; }
+}
+
+@media (max-width: 420px) {
+  .form-login { grid-template-columns: 1fr; }
+  .botao-entrar { min-height: 58px; }
+  .botao-entrar svg { width: 52px; }
+}

@@ -3,26 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kanban</title>
+  <title>KanbanA</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topo">
-    <h1 class="marca" aria-label="Kanban Banana">
-      <svg viewBox="0 0 205 96" role="img" aria-hidden="true">
-        <path d="M6 50 102.5 4 199 50M23 42v49M182 42v49" />
-        <text class="marca-ba" x="102.5" y="36">BA</text>
-        <text x="69" y="65">KAN</text>
-        <text x="137" y="65">NA</text>
-      </svg>
-    </h1>
-    <select id="seletor-quadro" aria-label="Quadro"></select>
-    <button id="novo-quadro">Novo Quadro</button>
-  </header>
-  <main id="quadro" class="quadro"></main>
- 
+  <section class="tela-login" id="tela-login" aria-labelledby="titulo-login">
+    <div class="painel-login">
+      <header class="cabecalho-login">
+        <h1 id="titulo-login">BEM VINDO AO KANBANA!</h1>
+      </header>
+      <div class="conteudo-login">
+        <p class="instrucao-login">faça login para continuar</p>
+        <form class="form-login" id="form-login">
+          <div class="campos-login">
+            <label class="sr-only" for="login-nick">Nome de usuário</label>
+            <input id="login-nick" name="nick" type="text" autocomplete="username" minlength="3" maxlength="32" placeholder="digite aqui seu nome de usuário..." required>
+
+            <label class="sr-only" for="login-email">E-mail</label>
+            <input id="login-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="digite aqui seu email..." required>
+
+            <label class="sr-only" for="login-senha">Senha</label>
+            <input id="login-senha" name="pass" type="password" autocomplete="current-password" maxlength="128" placeholder="digite aqui sua senha..." required>
+          </div>
+          <button class="botao-entrar" id="botao-entrar" type="submit" aria-label="Entrar">
+            <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+              <path d="M8 39h48V9l56 51-56 51V81H8z" />
+            </svg>
+          </button>
+        </form>
+        <p class="mensagem-login" id="mensagem-login" role="alert" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <div id="app-kanban" hidden>
+    <header class="topo">
+      <h1 class="marca" aria-label="Kanban Banana">
+        <svg viewBox="0 0 205 96" role="img" aria-hidden="true">
+          <path d="M6 50 102.5 4 199 50M23 42v49M182 42v49" />
+          <text class="marca-ba" x="102.5" y="36">BA</text>
+          <text x="69" y="65">KAN</text>
+          <text x="137" y="65">NA</text>
+        </svg>
+      </h1>
+      <select id="seletor-quadro" aria-label="Quadro"></select>
+      <button id="novo-quadro">Novo Quadro</button>
+    </header>
+    <main id="quadro" class="quadro"></main>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
- 
